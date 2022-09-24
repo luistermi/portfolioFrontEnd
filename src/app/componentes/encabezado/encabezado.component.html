@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav class="fixed-top navbar navbar-expand-sm navbar-dark bg-black">
+            <div class="container-fluid d-flex align-items-center">               
+                <a class="navbar-brand" href="">
+                    <img [src]="imgLogo" alt="logo">
+                    <b>     #YoProgramo     </b> 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>                 
+                <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+                    <div class="navbar-nav">
+                        <a class="nav-link fa fa-twitter align-self-center" [href]="twitter" target="_blank"></a>
+                        <a class="nav-link fa fa-facebook align-self-center" [href]="facebook" target="_blank"></a>
+                        <a class="nav-link align-self-center" href="#"><button type="button" class="btn btn-secondary login-btn">Login</button></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col">
+                <img [src]="imgBanner" id="fotofondo-banner" class="img-responsive d-block rounded" alt="FotoFondo">
+                <img [src]="imgFoto" id="fotopersonal-banner" class="img-fluid rounded-circle" alt="FotoPersonal">
+        </div>
+    </div>
+</div>
