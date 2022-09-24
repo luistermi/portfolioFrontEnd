@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+    h6{font-size:medium;}
+    p{font-size:small;}
+    button>span{font-size:small;}
+    .link-papelera, .link-add, .link-save{margin-left: 15%;}
+    }
+
+@media (min-width: 768px) {
+    h6{font-size:large;}
+    p{font-size:medium;}
+    button>span{font-size:medium;}
+    .link-papelera, .link-add, .link-save{margin-left: 8%;}
+    }
+
+.link-papelera, .link-add, .link-save, .link-edit {background-color: #0a226f;}
+
+h6{text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:black;}
+i{color:white;}
+.educacion#anio{text-align: center;}
+button > span{text-align: center;}
+
+input[type="text"] {width: 100%;}
