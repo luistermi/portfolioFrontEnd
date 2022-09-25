@@ -39,6 +39,7 @@ export class ProyectosComponent implements OnInit {
       this.proyectoDescripcion = "";
       this.proyectoUrl = "";
       this.visible=true;
+      this.cleanProyectos();
     }
     
     clean(index: number): void {
@@ -52,5 +53,14 @@ export class ProyectosComponent implements OnInit {
     
     visibleOff(){
     this.visible=false;
+    }
+
+    cleanProyectos(){
+      for (let proyecto of this.proyectos){
+        if (proyecto.titulo == '' && proyecto.descripcion == '' && proyecto.url == '') {
+          let index = this.proyectos.indexOf(proyecto);
+          this.proyectos.splice(index,1);
+        }
+      }
     }
 }

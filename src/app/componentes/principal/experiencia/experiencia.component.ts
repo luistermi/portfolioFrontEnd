@@ -41,6 +41,7 @@ export class ExperienciaComponent implements OnInit {
       this.experienciaAnio = "";
       this.experienciaDetalle = "";
       this.visible=true;
+      this.cleanExperiencias();
     }
     
     clean(index: number): void {
@@ -54,6 +55,15 @@ export class ExperienciaComponent implements OnInit {
     
     visibleOff(){
     this.visible=false;
+    }
+
+    cleanExperiencias(){
+      for (let experiencia of this.experiencias){
+        if (experiencia.anio == '' && experiencia.detalleExperiencia == '') {
+          let index = this.experiencias.indexOf(experiencia);
+          this.experiencias.splice(index,1);
+        }
+      }
     }
 }
   

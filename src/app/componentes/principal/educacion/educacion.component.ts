@@ -38,6 +38,7 @@ export class EducacionComponent implements OnInit {
     this.formacionAnio = "";
     this.formacionTitulo = "";
     this.visible=true;
+    this.cleanFormaciones();
   }
   
   clean(index: number): void {
@@ -51,5 +52,14 @@ export class EducacionComponent implements OnInit {
   
   visibleOff(){
   this.visible=false;
+  }
+
+  cleanFormaciones(){
+    for (let formacion of this.formaciones){
+      if (formacion.anio == '' && formacion.titulo == '') {
+        let index = this.formaciones.indexOf(formacion);
+        this.formaciones.splice(index,1);
+      }
+    }
   }
 }
