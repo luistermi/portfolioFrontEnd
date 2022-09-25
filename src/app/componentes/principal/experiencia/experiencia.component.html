@@ -1,1 +1,48 @@
-<p>experiencia works!</p>
+<div id="experiencia">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-md-2 border border-black bg-primary rounded">
+            <h6 class="fw-bold">Experiencia</h6>
+        </div>
+    </div>
+    <div class="row align-items-center mt-2 justify-content-start">
+        <div class="col-2">
+            <div class="d-flex justify-content-center align-items-center ">
+                <button (click)="toEditable()" [disabled]="editable" [hidden]="editable" class="link-edit"><i class="fa fa-pencil-square-o"></i></button>
+                <button [disabled]="!(editable && !addable)" [hidden]="!(editable && !addable)" (click)="add()" class="link-add"><i class="fa fa-plus"></i></button>
+                <button (click)="toNotEditable()" [disabled]="!editable" [hidden]="!editable" class="link-save"><i class="fa fa-floppy-o"></i></button>            
+            </div>
+        </div>    
+    </div>
+    <div *ngFor="let experiencia of experiencias; let i = index">
+      <div class="row pt-2 justify-content-center  align-items-center">
+          <div *ngIf="!editable && (experiencia.anio != ''||experiencia.detalleExperiencia != '')" class="col-3 col-md-2 border border-3 border-black bg-primary rounded">
+              <p class="experiencia" id="anio">{{experiencia.anio}}</p>
+          </div>
+          <div *ngIf="editable" class="col-3 col-md-2">
+              <input type="text" [(ngModel)] = "experiencia.anio" maxlength="20" class="bg-white">
+          </div>
+          <div *ngIf="!editable && (experiencia.anio != ''||experiencia.detalleExperiencia != '')" class="col-7 col-md-8 border border-3 border-black bg-primary rounded">
+              <p>{{experiencia.detalleExperiencia}}</p>
+          </div>
+          <div *ngIf="editable" class="col-7 col-md-8">
+              <input type="text" [(ngModel)] = "experiencia.detalleExperiencia" maxlength="120" class="bg-white">
+          </div>
+          <div *ngIf="editable" class="col-1">
+              <button *ngIf="editable" (click)="clean(i)" class="link-papelera"><i class="fa fa-trash"></i></button>
+          </div>
+      </div>
+    </div>
+    <div *ngIf="addable">
+      <div *ngFor= "let contador of contadorAddable" class="row pt-2 justify-content-center align-items-center">
+          <div *ngIf="editable && visible" class="col-3 col-md-2">
+              <input *ngIf="editable" type="text" [(ngModel)]="experienciaAnio" class="bg-white">
+          </div>
+          <div *ngIf="editable && visible" class="col-7 col-md-8">
+              <input *ngIf="editable" type="text" [(ngModel)]="experienciaDetalle" class="bg-white">
+          </div>
+          <div *ngIf="editable && visible" class="col-1">
+              <button *ngIf="editable" (click)="visibleOff()" class="link-papelera"><i class="fa fa-trash"></i></button>
+          </div>
+      </div>
+    </div>
+</div>

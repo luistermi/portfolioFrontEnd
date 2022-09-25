@@ -1,3 +1,5 @@
+#educacion {margin-top: 10%;}
+
 @media (max-width: 768px) {
     h6{font-size:medium;}
     p{font-size:small;}
