@@ -1,1 +1,34 @@
-<p>acerca-de works!</p>
+<div id="acercaDe">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-md-2 border border-black bg-primary rounded">
+            <h6 class="fw-bold">Información Personal</h6>
+        </div>
+    </div>
+    <div class="row align-items-center mt-2 justify-content-start">
+        <div class="col-2">
+            <div class="d-flex justify-content-center align-items-center ">
+                <button (click)="toEditable()" [disabled]="editable" [hidden]="editable" class="link-edit"><i class="fa fa-pencil-square-o"></i></button>
+                <button (click)="toNotEditable()" [disabled]="!editable" [hidden]="!editable" class="link-save"><i class="fa fa-floppy-o"></i></button>            
+            </div>
+        </div>    
+    </div>
+    <div class="row pt-2 justify-content-center  align-items-center">
+        <div *ngIf="!editable" class="col-3 col-md-2 border border-3 border-black bg-primary rounded">
+            <p class="acercaDe" id="nombreApellido">{{nombreApellido}}</p>
+            <br>
+            <p class="acercaDe" id="profesion">{{profesion}}</p>
+        </div>
+        <div *ngIf="editable" class="col-3 col-md-2">
+            <input type="text" [(ngModel)] = "nombreApellido" maxlength="40" class="bg-white" placeholder="Nombre(s) y Apellido(s)">
+            <br>
+            <input type="text" [(ngModel)] = "profesion" maxlength="60" class="bg-white" placeholder="Profesión">
+        </div>
+        <div *ngIf="!editable" class="col-7 col-md-8 border border-3 border-black bg-primary rounded">
+            <p>{{presentacionPersonal}}</p>
+        </div>
+        <div *ngIf="editable" class="col-8 col-md-9">
+            <input type="text" [(ngModel)] = "presentacionPersonal" maxlength="300" class="bg-white">
+        </div>
+    </div>
+</div>
+
