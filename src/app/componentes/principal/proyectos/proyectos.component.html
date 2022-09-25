@@ -1,1 +1,59 @@
-
+<div id="proyectos">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-md-2 border border-black bg-info rounded">
+            <h6 class="fw-bold">Proyectos</h6>
+        </div>
+    </div>
+    <div class="row align-items-center mt-2 justify-content-start">
+        <div class="col-2">
+            <div class="d-flex justify-content-center align-items-center ">
+                <button (click)="toEditable()" [disabled]="editable" [hidden]="editable" class="link-edit"><i class="fa fa-pencil-square-o"></i></button>
+                <button [disabled]="!(editable && !addable)" [hidden]="!(editable && !addable)" (click)="add()" class="link-add"><i class="fa fa-plus"></i></button>
+                <button (click)="toNotEditable()" [disabled]="!editable" [hidden]="!editable" class="link-save"><i class="fa fa-floppy-o"></i></button>            
+            </div>
+        </div>    
+    </div>
+    <div *ngFor="let proyecto of proyectos; let i = index">
+        <div *ngIf="!editable && (proyecto.titulo != ''||proyecto.descripcion != '' ||proyecto.url != '')">
+            <div class="row pt-2 justify-content-center align-items-center">
+                <div class="col-10 border border-3 border-black bg-primary rounded">
+                    <p class="proyectos" id="titulo"><b>{{proyecto.titulo}}</b></p>
+                    <p class="proyectos" id="descripcion">{{proyecto.descripcion}}</p>
+                </div>
+            </div>    
+            <div class="row pt-2 pb-4 justify-content-start align-items-center">
+                <div class="col-2 offset-1">
+                    <a [href]="proyecto.url" target="_blank"><button type="button" class="btn btn-dark btn-link"><span>Link al proyecto</span></button></a>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="editable">
+            <div class="row pt-2 justify-content-center align-items-center">
+                <div class="col-10">
+                    <input type="text" [(ngModel)] = "proyecto.titulo" maxlength="50" placeholder="Título del proyecto" class="bg-white">
+                    <br>
+                    <input type="text" [(ngModel)] = "proyecto.descripcion" placeholder="Descripción del proyecto" maxlength="150" class="bg-white">
+                    <br>
+                    <input type="text" [(ngModel)] = "proyecto.url" placeholder="Url del proyecto" maxlength="50" class="bg-white">
+                </div>
+                <div class="col-1">
+                    <button (click)="clean(i)" class="link-papelera"><i class="fa fa-trash"></i></button>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div *ngIf="addable">
+      <div *ngFor= "let contador of contadorAddable" class="row pt-2 justify-content-center align-items-center">
+          <div *ngIf="editable && visible" class="col-10">
+              <input *ngIf="editable" type="text" [(ngModel)]="proyectoTitulo" placeholder="Título del proyecto" maxlength="50" class="bg-white">
+              <br>
+              <input *ngIf="editable" type="text" [(ngModel)]="proyectoDescripcion" placeholder="Descripción del proyecto" maxlength="150" class="bg-white">
+              <br>
+              <input *ngIf="editable" type="text" [(ngModel)]="proyectoUrl" placeholder="Url del proyecto" maxlength="50" class="bg-white">
+          </div>
+          <div *ngIf="editable && visible" class="col-1">
+              <button *ngIf="editable" (click)="visibleOff()" class="link-papelera"><i class="fa fa-trash"></i></button>
+          </div>
+      </div>
+    </div>
+</div>
