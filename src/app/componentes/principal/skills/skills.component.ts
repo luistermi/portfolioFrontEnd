@@ -12,20 +12,20 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  skills = [
-    {skill: "Inglés", porcentaje: 60},
-    {skill: "Portugués", porcentaje: 60},
-    {skill: "Italiano", porcentaje: 40},
-    {skill: "Trabajo en equipo", porcentaje: 80},
-    {skill: "Proactividad", porcentaje: 80}
+  skills: any[] = [
+    {name: "Inglés", value: 60},
+    {name: "Portugués", value: 60},
+    {name: "Italiano", value: 40},
+    {name: "Trabajo en equipo", value: 80},
+    {name: "Proactividad", value: 80}
   ];
 
     editable = false;
     addable = false;
     visible=true;
     contadorAddable: number[]= [];
-    skillsSkill = "";
-    skillsPorcentaje: number = 0;
+    skillsName = "";
+    skillsValue: number = 0;
     
     toEditable(){
     this.editable = true;
@@ -35,11 +35,16 @@ export class SkillsComponent implements OnInit {
       this.editable = false;
       this.contadorAddable = [];
       this.addable = false;
-      if(this.skillsSkill!="" || (this.skillsPorcentaje!=null || this.skillsPorcentaje != 0)){
-      this.skills.push({skill:this.skillsSkill, porcentaje: this.skillsPorcentaje})
+      if(this.skillsName!="" || (this.skillsValue!=null || this.skillsValue != 0)){
+      let valor;
+      if(this.skillsValue == null) {
+        valor = 0;
+      } else {
+        valor = this.skillsValue};
+      this.skills.push({name:this.skillsName, value: valor})
       }
-      this.skillsSkill = "";
-      this.skillsPorcentaje = 0;
+      this.skillsName = "";
+      this.skillsValue = 0;
       this.visible=true;
       this.cleanSkills();
     }
@@ -59,9 +64,13 @@ export class SkillsComponent implements OnInit {
 
     cleanSkills(){
       for (let skill of this.skills){
-        if (skill.skill == '' && (skill.porcentaje == 0 || skill.porcentaje == null)) {
+        if (skill.name == '' && (skill.value == 0 || skill.value == null)) {
           let index = this.skills.indexOf(skill);
           this.skills.splice(index,1);
+        }
+
+        if (skill.name != '' && skill.value == null) {
+          skill.value = 0;
         }
       }
     }

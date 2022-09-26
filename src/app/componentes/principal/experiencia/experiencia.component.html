@@ -1,7 +1,8 @@
 <div id="experiencia">
     <div class="row align-items-center justify-content-center">
-        <div class="col-6 col-md-2 border border-black bg-info rounded">
-            <h6 class="fw-bold">Experiencia</h6>
+        <!-- <div class="col-6 col-md-2 border border-black bg-info rounded"> -->
+        <div class="col-6 col-md-2">
+            <h6 class="fw-bold">EXPERIENCIA</h6>
         </div>
     </div>
     <div class="row align-items-center mt-2 justify-content-start">
@@ -14,14 +15,14 @@
         </div>    
     </div>
     <div *ngFor="let experiencia of experiencias; let i = index">
-      <div class="row pt-2 justify-content-center  align-items-center">
-          <div *ngIf="!editable && (experiencia.anio != ''||experiencia.detalleExperiencia != '')" class="col-3 col-md-2 border border-3 border-black bg-primary rounded">
+      <div class="row pt-2 justify-content-center align-items-center">
+          <div *ngIf="!editable && (experiencia.anio != ''||experiencia.detalleExperiencia != '')" class="col-3 col-md-2 bg-primary rounded">
               <p class="experiencia" id="anio">{{experiencia.anio}}</p>
           </div>
           <div *ngIf="editable" class="col-3 col-md-2">
               <input type="text" [(ngModel)] = "experiencia.anio" placeholder="Año/Años" maxlength="20" class="bg-white">
           </div>
-          <div *ngIf="!editable && (experiencia.anio != ''||experiencia.detalleExperiencia != '')" class="col-7 col-md-8 border border-3 border-black bg-primary rounded">
+          <div *ngIf="!editable && (experiencia.anio != ''||experiencia.detalleExperiencia != '')" class="col-7 col-md-8 bg-primary rounded" style="margin-left: 2%;">
               <p>{{experiencia.detalleExperiencia}}</p>
           </div>
           <div *ngIf="editable" class="col-7 col-md-8">

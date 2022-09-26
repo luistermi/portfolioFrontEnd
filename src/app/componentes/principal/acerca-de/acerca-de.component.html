@@ -1,7 +1,8 @@
 <div id="acercaDe">
     <div class="row align-items-center justify-content-center">
-        <div class="col-6 col-md-2 border border-black bg-info rounded">
-            <h6 class="fw-bold">Información Personal</h6>
+        <!-- <div class="col-6 col-md-2 border border-black bg-info rounded"> -->
+        <div class="col-6 col-md-2">
+            <h6 class="fw-bold">INFORMACIÓN PERSONAL</h6>
         </div>
     </div>
     <div class="row align-items-center mt-2 justify-content-start">
@@ -13,9 +14,8 @@
         </div>    
     </div>
     <div class="row pt-2 justify-content-center  align-items-center">
-        <div *ngIf="!editable" class="col-3 col-md-2 border border-3 border-black bg-primary rounded">
+        <div *ngIf="!editable" class="col-3 col-md-2 bg-primary rounded">
             <p class="acercaDe" id="nombreApellido">{{nombreApellido}}</p>
-            <br>
             <p class="acercaDe" id="profesion">{{profesion}}</p>
         </div>
         <div *ngIf="editable" class="col-3 col-md-2">
@@ -23,7 +23,7 @@
             <br>
             <input type="text" [(ngModel)] = "profesion" maxlength="60" class="bg-white" placeholder="Profesión">
         </div>
-        <div *ngIf="!editable" class="col-7 col-md-8 border border-3 border-black bg-primary rounded">
+        <div *ngIf="!editable" class="col-7 col-md-8 bg-primary rounded" style="margin-left:2%;">
             <p>{{presentacionPersonal}}</p>
         </div>
         <div *ngIf="editable" class="col-8 col-md-9">

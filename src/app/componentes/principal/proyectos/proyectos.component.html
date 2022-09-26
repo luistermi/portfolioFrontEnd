@@ -1,7 +1,8 @@
 <div id="proyectos">
     <div class="row align-items-center justify-content-center">
-        <div class="col-6 col-md-2 border border-black bg-info rounded">
-            <h6 class="fw-bold">Proyectos</h6>
+        <!-- <div class="col-6 col-md-2 border border-black bg-info rounded"> -->
+        <div class="col-6 col-md-2">
+            <h6 class="fw-bold">PROYECTOS</h6>
         </div>
     </div>
     <div class="row align-items-center mt-2 justify-content-start">
@@ -16,14 +17,14 @@
     <div *ngFor="let proyecto of proyectos; let i = index">
         <div *ngIf="!editable && (proyecto.titulo != ''||proyecto.descripcion != '' ||proyecto.url != '')">
             <div class="row pt-2 justify-content-center align-items-center">
-                <div class="col-10 border border-3 border-black bg-primary rounded">
+                <div class="col-10 bg-primary rounded">
                     <p class="proyectos" id="titulo"><b>{{proyecto.titulo}}</b></p>
                     <p class="proyectos" id="descripcion">{{proyecto.descripcion}}</p>
                 </div>
             </div>    
             <div class="row pt-2 pb-4 justify-content-start align-items-center">
-                <div class="col-2 offset-1">
-                    <a [href]="proyecto.url" target="_blank"><button type="button" class="btn btn-dark btn-link"><span>Link al proyecto</span></button></a>
+                <div class="col-4 col-lg-3 offset-1">
+                    <a [href]="proyecto.url" target="_blank"><button type="button" class="btn btn-link"><span>Link al proyecto</span></button></a>
                 </div>
             </div>
         </div>
