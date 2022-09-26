@@ -16,7 +16,8 @@
 
 .link-papelera, .link-add, .link-save, .link-edit {background-color: #0a226f;}
 
-h6{text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:black;}
+h6{text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:white;}
+h6::first-letter{font-size: 1.5em;}
 i{color:white;}
 /* .proyectos#titulo{text-align: center;} */
 /* .proyectos#descripcion{text-align: left;} */
