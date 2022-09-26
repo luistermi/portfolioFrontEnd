@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule} from '@swimlane/ngx-charts';
+import { CommonModule } from '@angular/common';
+
 
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './componentes/encabezado/encabezado.component';
@@ -24,7 +28,10 @@ import { ProyectosComponent } from './componentes/principal/proyectos/proyectos.
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NgxChartsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,38 @@
+<div id="hardAndSoftSkills">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-md-2 border border-black bg-info rounded">
+            <h6 class="fw-bold">Hard and Soft Skills</h6>
+        </div>
+    </div>
+    <div class="row align-items-center mt-2 justify-content-start">
+        <div class="col-2">
+            <div class="d-flex justify-content-center align-items-center ">
+                <button (click)="toEditable()" [disabled]="editable" [hidden]="editable" class="link-edit"><i class="fa fa-pencil-square-o"></i></button>
+                <button [disabled]="!(editable && !addable)" [hidden]="!(editable && !addable)" (click)="add()" class="link-add"><i class="fa fa-plus"></i></button>
+                <button (click)="toNotEditable()" [disabled]="!editable" [hidden]="!editable" class="link-save"><i class="fa fa-floppy-o"></i></button>            
+            </div>
+        </div>    
+    </div>
+    <div *ngIf="!editable" class="row pt-2 justify-content-center align-items-center">
+        <ngx-charts-pie-grid [results] = "skills" [designatedTotal]= 100></ngx-charts-pie-grid>
+    </div>    
+    <div *ngIf="editable">
+        <div *ngFor="let skill of skills; let i = index;" class="row pt-2 justify-content-center align-items-center">
+            <div class="col-10 col-md-6 d-flex">
+                <input type="text" [(ngModel)] = "skill.skill" maxlength="50" placeholder="Habilidad" class="bg-white">
+                <input type="number" [(ngModel)] = "skill.porcentaje" placeholder="Porcentaje habilidad" min="0" max="100" class="bg-white">
+                <button (click)="clean(i)" class="link-papelera"><i class="fa fa-trash"></i></button>
+            </div>
+        </div>
+    </div>    
+    <div *ngIf="addable">
+        <div *ngFor= "let contador of contadorAddable" class="row pt-2 justify-content-center align-items-center">
+            <div *ngIf="editable && visible" class="col-10 col-md-6 d-flex">
+                <input *ngIf="editable" type="text" [(ngModel)]="skillsSkill" placeholder="Habilidad" maxlength="50" class="bg-white">
+                <input *ngIf="editable" type="number" [(ngModel)]="skillsPorcentaje" placeholder="Porcentaje habilidad" min="0" max="100" class="bg-white">
+                <button *ngIf="editable" (click)="visibleOff()" class="link-papelera"><i class="fa fa-trash"></i></button>
+            </div>
+        </div>
+    </div>    
+</div>
 
