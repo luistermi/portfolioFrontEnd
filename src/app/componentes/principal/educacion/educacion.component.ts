@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service';
 
 @Component({
   selector: 'app-educacion',
@@ -6,17 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
+  
+  formaciones: any;
 
-  constructor() { }
+  constructor(private datosPortfolio: DatosPortfolioService) { }
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.formaciones = data.educacion)
   }
 
-  formaciones = [
-  {anio: "2021-Actualidad", titulo: "#SeProgramar y #YoProgramo. Argentina Programa. Secretaría de Economía del Conocimiento."},
-  {anio: "2001-Actualidad", titulo: "Licenciatura en Economía. Facultad de Ciencias Económicas. Universidad de Buenos Aires."},
-  {anio: "2000", titulo: "Bachiller. Instituto Superior Martín Güemes. Berazategui."}];
-  
   editable = false;
   addable = false;
   visible=true;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service';
 
 @Component({
   selector: 'app-skills',
@@ -6,20 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
+  
+  skills: any;
 
-  constructor() { }
+  constructor(private datosPortfolio: DatosPortfolioService) { }
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.skills = data.skill)
   }
-
-  skills: any[] = [
-    {name: "Inglés", value: 60},
-    {name: "Portugués", value: 60},
-    {name: "Italiano", value: 40},
-    {name: "Trabajo en equipo", value: 80},
-    {name: "Proactividad", value: 80}
-  ];
-
+  
     editable = false;
     addable = false;
     visible=true;

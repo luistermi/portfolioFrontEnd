@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -6,15 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
+  
+  acercaDe: any;
 
-  constructor() { }
+  constructor(private datosPortfolio: DatosPortfolioService) { }
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.acercaDe = data.acercaDe);
   }
-
-  nombreApellido = "Luis Salvador Augusto Terminiello";
-  profesion = "Desarrollador Full Stack Web Junior";
-  presentacionPersonal = "Soy estudiante avanzado de la Licenciatura en Economía en la UBA. Tengo experiencia de más de diez años trabajando en área de QA de la Dirección General de Sistemas de la Administración Financiera, principalmente en testing funcional y en los últimos años en automation.";
 
     editable = false;
 

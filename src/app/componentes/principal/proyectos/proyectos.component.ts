@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -6,15 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
+  
+  proyectos: any;
 
-  constructor() { }
+  constructor(private datosPortfolio: DatosPortfolioService) { }
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.proyectos = data.proyecto)
   }
-
-  proyectos = [
-    {titulo: "Portfolio Personal", descripcion: "Proyecto de Portfolio Personal para la segunda etapa del Argentina Programa, #YoProgramo", url: "http://localhost:4200/"},
-    {titulo: "Proyecto Prueba Carga", descripcion: "Proyecto para la prueba de carga inicial", url: "#"}];
     
     editable = false;
     addable = false;

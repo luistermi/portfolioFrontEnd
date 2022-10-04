@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule} from '@swimlane/ngx-charts';
 import { CommonModule } from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { ExperienciaComponent } from './componentes/principal/experiencia/experi
 import { EducacionComponent } from './componentes/principal/educacion/educacion.component';
 import { SkillsComponent } from './componentes/principal/skills/skills.component';
 import { ProyectosComponent } from './componentes/principal/proyectos/proyectos.component';
+import { DatosPortfolioService } from './servicios/datos-portfolio.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,10 @@ import { ProyectosComponent } from './componentes/principal/proyectos/proyectos.
     FormsModule,
     BrowserAnimationsModule,
     NgxChartsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatosPortfolioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

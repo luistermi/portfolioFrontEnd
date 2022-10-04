@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -7,18 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ExperienciaComponent implements OnInit {
+  
+  experiencias: any;
 
-  constructor() { }
+  constructor(private datosPortfolio: DatosPortfolioService) { }
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.experiencias = data.experiencia)
   }
-
-  experiencias = [
-    {anio: "2021-Actualidad", detalleExperiencia: "QA Automation en DGSIAF de Secretaría de Hacienda del Ministerio de Economía de la República Argentina."},
-    {anio: "2020-2021", detalleExperiencia: "Trabajos varios en el marco de viaje por Sudamérica."},
-    {anio: "2010-2019", detalleExperiencia: "QA Funcional en DGSIAF de Secretaría de Hacienda del Ministerio de Economía de la República Argentina."},
-    {anio: "2007-2010", detalleExperiencia: "Trabajos varios en el marco de viaje por España países de Sudamérica."},
-    {anio: "2005-2007", detalleExperiencia: "QA Funcional en DGSIAF de Secretaría de Hacienda del Ministerio de Economía de la República Argentina."}];
     
     editable = false;
     addable = false;

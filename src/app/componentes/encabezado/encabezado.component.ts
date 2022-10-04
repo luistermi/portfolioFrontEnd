@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -6,16 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
-  imgLogo = "./assets/imagenes/logo.jpg";
-  imgFoto = "./assets/imagenes/fotoPortfolio.jpg";
-  imgBanner = "./assets/imagenes/banner.jpg";
-  twitter = "https://twitter.com/luchoyvuelvo2";
-  facebook = "https://www.facebook.com/Luichi923";
   
-  constructor() { }
+  encabezado: any;
+    
+  constructor(private datosPortfolio: DatosPortfolioService) { }
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.encabezado = data.encabezado);
   }
-  
-  
 }
