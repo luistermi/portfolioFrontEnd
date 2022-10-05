@@ -6,6 +6,7 @@ import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
+
 export class BannerComponent implements OnInit {
   
   encabezado: any;

@@ -1,21 +1,18 @@
-<!-- <div class="row"> -->
-    <nav class="fixed-top navbar navbar-expand-sm navbar-dark bg-black">
-        <div class="container-fluid">               
-            <div class="navbar-brand d-flex" href="">
-                <img [src]="encabezado.imgLogo" class="align-self-center" alt="logo">
-                <p class="align-self-end"><b> #YoProgramo </b></p> 
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>                 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
-                <div class="navbar-nav">
-                    <a class="nav-link fa fa-twitter align-self-center" [href]="encabezado.twitter" target="_blank"></a>
-                    <a class="nav-link fa fa-facebook align-self-center" [href]="encabezado.facebook" target="_blank"></a>
-                    <!-- <a class="nav-link align-self-center" href="#"><button type="button" class="btn btn-secondary login-btn">Login</button></a> -->
-                    <a class="nav-link align-self-center" routerLink="/login"><button type="button" class="btn btn-secondary login-btn">Login</button></a>
-                </div>
+<nav class="fixed-top navbar navbar-expand-sm navbar-dark bg-black">
+    <div class="container-fluid">               
+        <div class="navbar-brand d-flex" href="">
+            <img [src]="encabezado.imgLogo" class="align-self-center" alt="logo">
+            <p class="align-self-end"><b> #YoProgramo </b></p> 
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>                 
+        <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+            <div class="navbar-nav">
+                <a class="nav-link fa fa-twitter align-self-center" [href]="encabezado.twitter" target="_blank"></a>
+                <a class="nav-link fa fa-facebook align-self-center" [href]="encabezado.facebook" target="_blank"></a>
+                <a class="nav-link align-self-center" routerLink="/login"><button type="button" class="btn btn-secondary login-btn">Login</button></a>
             </div>
         </div>
-    </nav>
-<!-- </div> -->
+    </div>
+</nav>

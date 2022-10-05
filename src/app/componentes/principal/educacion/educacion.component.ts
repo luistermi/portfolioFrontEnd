@@ -6,22 +6,29 @@ import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css']
 })
+
 export class EducacionComponent implements OnInit {
   
   formaciones: any;
+  editable: boolean;
+  addable: boolean;
+  visible: boolean;
+  contadorAddable: number[];
+  formacionAnio: string;
+  formacionTitulo: string;
 
-  constructor(private datosPortfolio: DatosPortfolioService) { }
+  constructor(private datosPortfolio: DatosPortfolioService) {
+    this.editable = false;
+    this.addable = false;
+    this.visible = true;
+    this.contadorAddable = [];
+    this.formacionAnio = "";
+    this.formacionTitulo = ""
+  }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.formaciones = data.educacion)
   }
-
-  editable = false;
-  addable = false;
-  visible=true;
-  contadorAddable: number[]= [];
-  formacionAnio = "";
-  formacionTitulo = "";
   
   toEditable(){
   this.editable = true;
@@ -61,4 +68,5 @@ export class EducacionComponent implements OnInit {
       }
     }
   }
+
 }
