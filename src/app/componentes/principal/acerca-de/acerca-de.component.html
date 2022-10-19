@@ -14,19 +14,21 @@
     </div>
     <div class="row pt-2 justify-content-center  align-items-center">
         <div *ngIf="!editable" class="col-3 col-md-2 bg-primary rounded">
-            <p class="acercaDe" id="nombreApellido">{{acercaDe.nombreApellido}}</p>
+            <p class="acercaDe" id="nombreApellido">{{acercaDe.nombre}} {{acercaDe.apellido}}</p>
             <p class="acercaDe" id="profesion">{{acercaDe.profesion}}</p>
         </div>
         <div *ngIf="editable" class="col-3 col-md-2">
-            <input type="text" [(ngModel)] = "acercaDe.nombreApellido" maxlength="40" class="bg-white" placeholder="Nombre(s) y Apellido(s)">
+            <input type="text" [(ngModel)] = "acercaDe.nombre" maxlength="45" class="bg-white" placeholder="Nombre(s)">
             <br>
-            <input type="text" [(ngModel)] = "acercaDe.profesion" maxlength="60" class="bg-white" placeholder="Profesión">
+            <input type="text" [(ngModel)] = "acercaDe.apellido" maxlength="45" class="bg-white" placeholder="Apellido(s)">
+            <br>
+            <input type="text" [(ngModel)] = "acercaDe.profesion" maxlength="45" class="bg-white" placeholder="Profesión">
         </div>
         <div *ngIf="!editable" class="col-7 col-md-8 bg-primary rounded" style="margin-left:2%;">
-            <p>{{acercaDe.presentacionPersonal}}</p>
+            <p>{{acercaDe.presentacion}}</p>
         </div>
         <div *ngIf="editable" class="col-8 col-md-9">
-            <input type="text" [(ngModel)] = "acercaDe.presentacionPersonal" placeholder="Presentación Personal" maxlength="300" class="bg-white">
+            <input type="text" [(ngModel)] = "acercaDe.presentacion" placeholder="Presentación Personal" maxlength="255" class="bg-white">
         </div>
     </div>
 </div>

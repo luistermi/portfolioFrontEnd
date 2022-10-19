@@ -14,16 +14,20 @@ export class ExperienciaComponent implements OnInit {
   addable: boolean;
   visible: boolean;
   contadorAddable: number[];
-  experienciaAnio: string;
-  experienciaDetalle: string;
+  experienciaAnioInicio: string;
+  experienciaAnioFin: string;
+  experienciaDescripcion: string;
+  experienciaOrganizacion: string;
 
   constructor(private datosPortfolio: DatosPortfolioService) { 
     this.editable = false;
     this.addable = false;
     this.visible = true;
     this.contadorAddable = [];
-    this.experienciaAnio = "";
-    this.experienciaDetalle = "";
+    this.experienciaAnioInicio = "";
+    this.experienciaAnioFin = "";
+    this.experienciaDescripcion = "";
+    this.experienciaOrganizacion = "";
   }
 
   ngOnInit(): void {
@@ -38,11 +42,13 @@ export class ExperienciaComponent implements OnInit {
     this.editable = false;
     this.contadorAddable = [];
     this.addable = false;
-    if(this.experienciaAnio!="" || this.experienciaDetalle!=""){
-    this.experiencias.push({anio:this.experienciaAnio,detalleExperiencia:this.experienciaDetalle})
+    if(this.experienciaAnioInicio!="" || this.experienciaAnioFin!="" || this.experienciaDescripcion!="" || this.experienciaOrganizacion!=""){
+    this.experiencias.push({anioInicio:this.experienciaAnioInicio,anioFin:this.experienciaAnioFin,descripcion:this.experienciaDescripcion,organizacion:this.experienciaOrganizacion });
     }
-    this.experienciaAnio = "";
-    this.experienciaDetalle = "";
+    this.experienciaAnioInicio = "";
+    this.experienciaAnioFin = "";
+    this.experienciaDescripcion = "";
+    this.experienciaOrganizacion = ""; 
     this.visible=true;
     this.cleanExperiencias();
   }
@@ -62,7 +68,7 @@ export class ExperienciaComponent implements OnInit {
 
   cleanExperiencias(){
     for (let experiencia of this.experiencias){
-      if (experiencia.anio == '' && experiencia.detalleExperiencia == '') {
+      if (experiencia.anioInicio == '' && experiencia.anioFin == '' && experiencia.descripcion == '' && experiencia.organizacion == '') {
         let index = this.experiencias.indexOf(experiencia);
         this.experiencias.splice(index,1);
       }

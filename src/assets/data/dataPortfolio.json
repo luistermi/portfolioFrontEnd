@@ -2,29 +2,30 @@
     "encabezado": {
         "imgLogo": "./assets/imagenes/logo.jpg",
         "imgFoto":"./assets/imagenes/fotoPortfolio.jpg",
-        "imgBanner": "./assets/imagenes/banner.jpg",
+        "imgBanner": "./assets/imagenes/banner.jpg"
+    },
+
+    "acercaDe": {
+        "nombre": "Luis Salvador Augusto",
+        "apellido": "Terminiello",
+        "profesion": "Desarrollador Full Stack Web Junior",
+        "presentacion": "Soy estudiante avanzado de la Licenciatura en Economía en la UBA. Tengo experiencia de más de diez años trabajando en área de QA de la Dirección General de Sistemas de la Administración Financiera, principalmente en testing funcional y en los últimos años en automation.",
         "twitter": "https://twitter.com/luchoyvuelvo2",
         "facebook": "https://www.facebook.com/Luichi923"
     },
 
-    "acercaDe": {
-        "nombreApellido": "Luis Salvador Augusto Terminiello",
-        "profesion": "Desarrollador Full Stack Web Junior",
-        "presentacionPersonal": "Soy estudiante avanzado de la Licenciatura en Economía en la UBA. Tengo experiencia de más de diez años trabajando en área de QA de la Dirección General de Sistemas de la Administración Financiera, principalmente en testing funcional y en los últimos años en automation."
-    },
-
     "educacion": [
-        {"anio": "2021-Actualidad", "titulo": "#SeProgramar y #YoProgramo. Argentina Programa. Secretaría de Economía del Conocimiento."},
-        {"anio": "2001-Actualidad", "titulo": "Licenciatura en Economía. Facultad de Ciencias Económicas. Universidad de Buenos Aires."},
-        {"anio": "2000", "titulo": "Bachiller. Instituto Superior Martín Güemes. Berazategui."}
+        {"anioInicio": "2021", "anioFin": "" , "titulo": "#SeProgramar y #YoProgramo. Argentina Programa", "institucion": "Secretaría de Economía del Conocimiento"},
+        {"anioInicio": "2001", "anioFin": "", "titulo": "Licenciatura en Economía", "institucion": "Facultad de Ciencias Económicas. Universidad de Buenos Aires"},
+        {"anioInicio": "1996", "anioFin": "2000", "titulo": "Bachiller", "institucion": "Instituto Superior Martín Güemes. Berazategui"}
     ],
 
     "experiencia": [
-        {"anio": "2021-Actualidad", "detalleExperiencia": "QA Automation en DGSIAF de Secretaría de Hacienda del Ministerio de Economía de la República Argentina."},
-        {"anio": "2020-2021", "detalleExperiencia": "Trabajos varios en el marco de viaje por Sudamérica."},
-        {"anio": "2010-2019", "detalleExperiencia": "QA Funcional en DGSIAF de Secretaría de Hacienda del Ministerio de Economía de la República Argentina."},
-        {"anio": "2007-2010", "detalleExperiencia": "Trabajos varios en el marco de viaje por España países de Sudamérica."},
-        {"anio": "2005-2007", "detalleExperiencia": "QA Funcional en DGSIAF de Secretaría de Hacienda del Ministerio de Economía de la República Argentina."}
+        {"anioInicio": "2021", "anioFin": "","descripcion": "QA Automation", "organizacion": "DGSIAF. Secretaría de Hacienda. Ministerio de Economía de la República Argentina."},
+        {"anioInicio": "2020", "anioFin": "2021","descripcion": "Trabajos varios", "organizacion": "Viaje por Sudamérica."},
+        {"anioInicio": "2010", "anioFin": "2019","descripcion": "QA Funcional", "organizacion": "DGSIAF. Secretaría de Hacienda. Ministerio de Economía de la República Argentina."},
+        {"anioInicio": "2007", "anioFin": "2010","descripcion": "Trabajos varios", "organizacion": "Viaje por países de Europa."},
+        {"anioInicio": "2005", "anioFin": "2007","descripcion": "QA Funcional", "organizacion": "DGSIAF. Secretaría de Hacienda. Ministerio de Economía de la República Argentina."}
     ],
 
     "proyecto": [

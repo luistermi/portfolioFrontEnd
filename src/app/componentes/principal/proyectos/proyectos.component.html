@@ -30,11 +30,11 @@
         <div *ngIf="editable">
             <div class="row pt-2 justify-content-center align-items-center">
                 <div class="col-10">
-                    <input type="text" [(ngModel)] = "proyecto.titulo" maxlength="50" placeholder="Título del proyecto" class="bg-white">
+                    <input type="text" [(ngModel)] = "proyecto.titulo" maxlength="45" placeholder="Título del proyecto" class="bg-white">
                     <br>
-                    <input type="text" [(ngModel)] = "proyecto.descripcion" placeholder="Descripción del proyecto" maxlength="150" class="bg-white">
+                    <input type="text" [(ngModel)] = "proyecto.descripcion" placeholder="Descripción del proyecto" maxlength="255" class="bg-white">
                     <br>
-                    <input type="text" [(ngModel)] = "proyecto.url" placeholder="Url del proyecto" maxlength="50" class="bg-white">
+                    <input type="text" [(ngModel)] = "proyecto.url" placeholder="Url del proyecto" maxlength="45" class="bg-white">
                 </div>
                 <div class="col-1">
                     <button (click)="clean(i)" class="link-papelera"><i class="fa fa-trash"></i></button>
@@ -45,11 +45,11 @@
     <div *ngIf="addable">
       <div *ngFor= "let contador of contadorAddable" class="row pt-2 justify-content-center align-items-center">
           <div *ngIf="editable && visible" class="col-10">
-              <input *ngIf="editable" type="text" [(ngModel)]="proyectoTitulo" placeholder="Título del proyecto" maxlength="50" class="bg-white">
+              <input *ngIf="editable" type="text" [(ngModel)]="proyectoTitulo" placeholder="Título del proyecto" maxlength="45" class="bg-white">
               <br>
-              <input *ngIf="editable" type="text" [(ngModel)]="proyectoDescripcion" placeholder="Descripción del proyecto" maxlength="150" class="bg-white">
+              <input *ngIf="editable" type="text" [(ngModel)]="proyectoDescripcion" placeholder="Descripción del proyecto" maxlength="255" class="bg-white">
               <br>
-              <input *ngIf="editable" type="text" [(ngModel)]="proyectoUrl" placeholder="Url del proyecto" maxlength="50" class="bg-white">
+              <input *ngIf="editable" type="text" [(ngModel)]="proyectoUrl" placeholder="Url del proyecto" maxlength="45" class="bg-white">
           </div>
           <div *ngIf="editable && visible" class="col-1">
               <button *ngIf="editable" (click)="visibleOff()" class="link-papelera"><i class="fa fa-trash"></i></button>

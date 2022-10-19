@@ -9,13 +9,14 @@ import { DatosPortfolioService } from 'src/app/servicios/datos-portfolio.service
 
 export class NavbarComponent implements OnInit {
   
-  encabezado: any;
+  acercaDe: any;
+  encabezado: any; 
 
   constructor(private datosPortfolio: DatosPortfolioService) {
   }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => this.encabezado = data.encabezado)
+    this.datosPortfolio.obtenerDatosPortfolio().subscribe(data => {this.acercaDe = data.acercaDe; this.encabezado = data.encabezado;})
   }
 
 }

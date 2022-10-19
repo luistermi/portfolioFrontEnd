@@ -15,17 +15,19 @@
     </div>
     <div *ngFor="let formacion of formaciones; let i = index">
       <div class="row pt-2 justify-content-center  align-items-center">
-          <div *ngIf="!editable && (formacion.anio != ''||formacion.titulo != '')" class="col-3 col-md-2 bg-primary rounded">
-              <p class="educacion" id="anio">{{formacion.anio}}</p>
+          <div *ngIf="!editable && (formacion.anioInicio != ''||formacion.anioFin != ''||formacion.titulo != ''||formacion.institucion != '')" class="col-3 col-md-2 bg-primary rounded">
+              <p class="educacion" id="anio">{{formacion.anioInicio}}-{{formacion.anioFin}}</p>
           </div>
-          <div *ngIf="editable" class="col-3 col-md-2">
-              <input type="text" [(ngModel)] = "formacion.anio" placeholder="Año/Años" maxlength="20" class="bg-white">
+          <div *ngIf="editable" class="col-3 col-md-2 d-flex">
+              <input type="text" [(ngModel)] = "formacion.anioInicio" placeholder="Año Inicio" maxlength="4" class="bg-white">
+              <input type="text" [(ngModel)] = "formacion.anioFin" placeholder="Año Fin" maxlength="4" class="bg-white">
           </div>
-          <div *ngIf="!editable && (formacion.anio != ''||formacion.titulo != '')" class="col-7 col-md-8 bg-primary rounded" style="margin-left: 2%;">
-              <p>{{formacion.titulo}}</p>
+          <div *ngIf="!editable && (formacion.anioInicio != ''||formacion.anioFin != ''||formacion.titulo != ''||formacion.institucion != '')" class="col-7 col-md-8 bg-primary rounded" style="margin-left: 2%;">
+              <p>{{formacion.titulo}}. {{formacion.institucion}}.</p>
           </div>
-          <div *ngIf="editable" class="col-7 col-md-8">
-              <input type="text" [(ngModel)] = "formacion.titulo" placeholder="Título" maxlength="100" class="bg-white">
+          <div *ngIf="editable" class="col-7 col-md-8 d-flex">
+              <input type="text" [(ngModel)] = "formacion.titulo" placeholder="Título" maxlength="45" class="bg-white">
+              <input type="text" [(ngModel)] = "formacion.institucion" placeholder="Institución" maxlength="45" class="bg-white">
           </div>
           <div *ngIf="editable" class="col-1">
               <button *ngIf="editable" (click)="clean(i)" class="link-papelera"><i class="fa fa-trash"></i></button>
@@ -34,11 +36,13 @@
     </div>
     <div *ngIf="addable">
       <div *ngFor= "let contador of contadorAddable" class="row pt-2 justify-content-center align-items-center">
-          <div *ngIf="editable && visible" class="col-3 col-md-2">
-              <input *ngIf="editable" type="text" [(ngModel)]="formacionAnio" placeholder="Año/Años" maxlength="20" class="bg-white">
+          <div *ngIf="editable && visible" class="col-3 col-md-2 d-flex">
+              <input *ngIf="editable" type="text" [(ngModel)]="formacionAnioInicio" placeholder="Año Inicio" maxlength="4" class="bg-white">
+              <input *ngIf="editable" type="text" [(ngModel)]="formacionAnioFin" placeholder="Año Fin" maxlength="4" class="bg-white">
           </div>
-          <div *ngIf="editable && visible" class="col-7 col-md-8">
-              <input *ngIf="editable" type="text" [(ngModel)]="formacionTitulo" placeholder="Título" maxlength="100" class="bg-white">
+          <div *ngIf="editable && visible" class="col-7 col-md-8 d-flex">
+              <input *ngIf="editable" type="text" [(ngModel)]="formacionTitulo" placeholder="Título" maxlength="45" class="bg-white">
+              <input *ngIf="editable" type="text" [(ngModel)]="formacionInstitucion" placeholder="Institución" maxlength="45" class="bg-white">
           </div>
           <div *ngIf="editable && visible" class="col-1">
               <button *ngIf="editable" (click)="visibleOff()" class="link-papelera"><i class="fa fa-trash"></i></button>

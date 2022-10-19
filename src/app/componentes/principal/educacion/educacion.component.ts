@@ -14,16 +14,20 @@ export class EducacionComponent implements OnInit {
   addable: boolean;
   visible: boolean;
   contadorAddable: number[];
-  formacionAnio: string;
+  formacionAnioInicio: string;
+  formacionAnioFin: string;
   formacionTitulo: string;
+  formacionInstitucion: string;
 
   constructor(private datosPortfolio: DatosPortfolioService) {
     this.editable = false;
     this.addable = false;
     this.visible = true;
     this.contadorAddable = [];
-    this.formacionAnio = "";
-    this.formacionTitulo = ""
+    this.formacionAnioInicio = "";
+    this.formacionAnioFin = "";
+    this.formacionTitulo = "",
+    this.formacionInstitucion = "";
   }
 
   ngOnInit(): void {
@@ -38,11 +42,13 @@ export class EducacionComponent implements OnInit {
     this.editable = false;
     this.contadorAddable = [];
     this.addable = false;
-    if(this.formacionAnio!="" || this.formacionTitulo!=""){
-    this.formaciones.push({anio:this.formacionAnio,titulo:this.formacionTitulo})
+    if(this.formacionAnioInicio!="" || this.formacionAnioFin!="" || this.formacionTitulo!="" || this.formacionInstitucion!=""){
+    this.formaciones.push({anioInicio:this.formacionAnioInicio,anioFin:this.formacionAnioFin,titulo:this.formacionTitulo,institucion:this.formacionInstitucion});
     }
-    this.formacionAnio = "";
+    this.formacionAnioInicio = "";
+    this.formacionAnioFin = "";
     this.formacionTitulo = "";
+    this.formacionInstitucion = "";
     this.visible=true;
     this.cleanFormaciones();
   }
@@ -62,7 +68,7 @@ export class EducacionComponent implements OnInit {
 
   cleanFormaciones(){
     for (let formacion of this.formaciones){
-      if (formacion.anio == '' && formacion.titulo == '') {
+      if (formacion.anioInicio == '' && formacion.anioFin == '' && formacion.titulo == '' && formacion.institucion == '') {
         let index = this.formaciones.indexOf(formacion);
         this.formaciones.splice(index,1);
       }
